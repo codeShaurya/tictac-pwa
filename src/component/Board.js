@@ -17,7 +17,7 @@ const styles = theme => ({
   }
 });
 
-class Board extends React.Component {
+class Board extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,7 +59,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes ,fillsquare,fillSquare} = this.props;
     const { squares } = this.state;
     const playerNext = this.state.xNext ? 'X' : 'O';
     const playerNexts = this.winner(squares);;

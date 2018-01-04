@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
     "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "1.0.0-alpha.19",
     "prop-types": "15.5.10",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-hot-loader": "3.0.0-beta.7",
     "react-redux": "^5.0.5",
     "react-router": "4.1.1",
     "react-router-dom": "4.1.1",
+    "react-scripts": "1.0.17",
     "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "2.2.0"
   },
   "scripts": {
