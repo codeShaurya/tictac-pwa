@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withRouter from 'react-router/withRouter';
 
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
 import { withStyles } from 'material-ui/styles';
+import Grid from 'material-ui/Grid';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
-
-import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 
 import Header from './Header';
+
+import actionPlayer from '../action/player';
 
 const styles = theme => ({
   card: {
@@ -52,10 +56,19 @@ class Home extends Component {
   }
 
   onClick() {
+    const { player1, player2, code1, code2 } = this.state;
+
+    this.props.actionPlayer({ player1, player2, code1, code2 });
+
     setTimeout(() => {
       this.props.history.push('tic-tac');
     }, 1000);
   }
+
+  onChangePlayer1 = (e) => { this.setState({ player1: e.target.value }); }
+  onChangePlayer2 = (e) => { this.setState({ player2: e.target.value }); }
+  onChangeCode1 = (e) => { this.setState({ code1: e.target.value }); }
+  onChangeCode2 = (e) => { this.setState({ code2: e.target.value }); }
 
   render() {
     const { classes } = this.props;
@@ -79,6 +92,7 @@ class Home extends Component {
                   placeholder="Enter Name"
                   className={classes.textField}
                   margin="normal"
+                  onChange={this.onChangePlayer1}
                 />
                 <br />
                 <TextField
@@ -87,6 +101,7 @@ class Home extends Component {
                   placeholder="Enter Code"
                   className={classes.textField}
                   margin="normal"
+                  onChange={this.onChangeCode1}
                 />
                 <br />
                 <TextField
@@ -95,6 +110,7 @@ class Home extends Component {
                   placeholder="Enter Name"
                   className={classes.textField}
                   margin="normal"
+                  onChange={this.onChangePlayer2}
                 />
                 <br />
                 <TextField
@@ -103,15 +119,14 @@ class Home extends Component {
                   placeholder="Enter Code"
                   className={classes.textField}
                   margin="normal"
+                  onChange={this.onChangeCode2}
                 />
               </CardContent>
               <CardActions>
                 <div className={classes.flexGrow} />
-                <Button
-                  raised
-                  color="accent"
-                  onClick={this.onClick}
-                >Start Game</Button>
+                <Button raised color="accent" onClick={this.onClick} >
+                  Start Game
+                </Button>
               </CardActions>
             </Card>
           </Grid>
@@ -125,4 +140,13 @@ Home.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(withRouter(Home));
+const mapStateToProps = state => state;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  actionPlayer,
+}, dispatch);
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withStyles(styles)(withRouter(Home)));
