@@ -10,7 +10,6 @@ import MenuIcon from 'material-ui-icons/Menu';
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing.unit * 0,
     width: '100%',
   },
   flex: {
@@ -32,7 +31,7 @@ function Header(props) {
             <MenuIcon />
           </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
-            Title
+            TIC-TAC
           </Typography>
           <Button color="contrast">Login</Button>
         </Toolbar>

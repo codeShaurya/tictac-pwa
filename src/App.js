@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { createMuiTheme } from 'material-ui/styles';
 
-import Grid from 'material-ui/Grid';
-import Header from './component/Header';
-import Board from './component/Board';
-import WinnerCard from './component/Winner';
-
-import fillsquare from './action/fillsquare';
+import Game from './component/Game';
+import Home from './component/Home';
 
 class App extends Component {
   render() {
@@ -18,29 +13,17 @@ class App extends Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <div>
-          <Header />
-          <Grid container >
-            <Grid item xs={12} sm={12} lg={6}>
-              <Board {...this.props}/>
-            </Grid>
-            <Grid item xs={12} sm={12} lg={6}>
-              <WinnerCard />
-            </Grid>
-          </Grid>
-        </div>
+        <Switch>
+          <Route exact path={'/'} component={Home} />
+          <Route
+            exact
+            path={'/tic-tac'}
+            component={Game}
+          />
+        </Switch>
       </MuiThemeProvider>
     );
   }
 }
 
-
-function mapStateToProps(state) {
-  return state;
-}
-
-function mapDispachToProps(dispatch) {
-  return bindActionCreators({fillsquare}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispachToProps)(App);
+export default App;
