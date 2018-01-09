@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-
 import Grid from 'material-ui/Grid';
 import Header from './Header';
 import Board from './Board';
@@ -11,7 +10,14 @@ import WinnerCard from './Winner';
 import fillsquare from '../action/fillsquare';
 
 class Game extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
+    const { player, fillSquare } = this.props;
+
     return (
       <div>
         <Header />
@@ -20,7 +26,7 @@ class Game extends Component {
             <Board {...this.props} />
           </Grid>
           <Grid item xs={12} sm={12} lg={6}>
-            <WinnerCard />
+            <WinnerCard {...player} />
           </Grid>
         </Grid>
       </div>

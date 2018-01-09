@@ -1,9 +1,9 @@
 
 export const player1 = {
-  name: 'shubham',
-  code: 'S',
+  name: 'PLAYER_1',
+  code: 'X',
 };
 export const player2 = {
-  name: 'shaurya',
-  code: 'C',
+  name: 'PLAYER_2',
+  code: 'O',
 };

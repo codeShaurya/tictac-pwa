@@ -47,8 +47,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      player1: '',
-      player2: '',
+      Player1: '',
+      Player2: '',
       code1: '',
       code2: '',
     };
@@ -56,17 +56,20 @@ class Home extends Component {
   }
 
   onClick() {
-    const { player1, player2, code1, code2 } = this.state;
+    const { Player1, Player2, code1, code2 } = this.state;
 
-    this.props.actionPlayer({ player1, player2, code1, code2 });
+    this.props.actionPlayer({
+      player1: { name: Player1, code: code1 },
+      player2: { name: Player2, code: code1 },
+    });
 
     setTimeout(() => {
       this.props.history.push('tic-tac');
     }, 1000);
   }
 
-  onChangePlayer1 = (e) => { this.setState({ player1: e.target.value }); }
-  onChangePlayer2 = (e) => { this.setState({ player2: e.target.value }); }
+  onChangePlayer1 = (e) => { this.setState({ Player1: e.target.value }); }
+  onChangePlayer2 = (e) => { this.setState({ Player2: e.target.value }); }
   onChangeCode1 = (e) => { this.setState({ code1: e.target.value }); }
   onChangeCode2 = (e) => { this.setState({ code2: e.target.value }); }
 

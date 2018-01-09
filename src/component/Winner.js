@@ -19,7 +19,8 @@ const styles = theme => ({
 
 class WinnerCard extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, player1, player2 } = this.props;
+
     return (
       <div>
         <Card className={classes.card}>
