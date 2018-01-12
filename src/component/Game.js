@@ -21,11 +21,11 @@ class Game extends Component {
     return (
       <div>
         <Header />
-        <Grid container >
-          <Grid item xs={12} sm={12} lg={6}>
+        <Grid container justify="space-around" >
+          <Grid item xs={12} sm={12} md={5} lg={5}>
             <Board {...this.props} />
           </Grid>
-          <Grid item xs={12} sm={12} lg={6}>
+          <Grid item xs={12} sm={12} md={5} lg={5}>
             <WinnerCard {...player} />
           </Grid>
         </Grid>

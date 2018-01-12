@@ -60,7 +60,7 @@ class Home extends Component {
 
     this.props.actionPlayer({
       player1: { name: Player1, code: code1 },
-      player2: { name: Player2, code: code1 },
+      player2: { name: Player2, code: code2 },
     });
 
     setTimeout(() => {

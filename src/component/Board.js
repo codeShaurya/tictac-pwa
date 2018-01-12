@@ -2,13 +2,28 @@ import React, { Component } from 'react';
 import Square from './Square';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import classnames from 'classnames';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    padding: '5%',
+  },
+  card:{
+    display:'flex',
+    flexDirection:'column',
+  },
+  player: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  info: {
+    alignSelf: 'flex-start',
+    padding: '2px',
   },
   boardRow: {
     clear: 'both',
@@ -66,9 +81,22 @@ class Board extends Component {
     const num1 = ['0', '1', '2'];
     const num2 = ['3', '4', '5'];
     const num3 = ['6', '7', '8'];
+    console.log(playerNexts);
     return (
       <div className={classes.root}>
-        <h2>Next Player:   {playerNext}  Winner is:{playerNexts}</h2>
+      <Card className={classes.card}>
+          <CardContent >
+            <div className={classes.player}>
+              <Typography type="display1" className={classes.info} >
+                {`Next Player is : ${playerNext}`}
+                </Typography>
+              <Typography type="display1" color="primary" className={classes.info}>
+              {playerNexts === null ? ' ':
+                (`Winner is :${playerNexts}`)}              
+              </Typography>
+            </div>
+          </CardContent>
+          <CardContent>        
         <div className={classes.boardRow}>
           {num1.map((p, i) => (
             <Square
@@ -94,6 +122,8 @@ class Board extends Component {
           />
           ))}
         </div>
+            </CardContent>        
+        </Card>
       </div >
     );
   }
