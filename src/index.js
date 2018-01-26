@@ -1,15 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import * as firebase from "firebase";
+import * as firebase from 'firebase';
 
-import { BrowserRouter } from "react-router-dom";
-import { AppContainer } from "react-hot-loader";
-import { Provider } from "react-redux";
+import { BrowserRouter } from 'react-router-dom';
+import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
 
 // comment
-import App from "./App";
-import store from "./store";
+import App from './App';
+import store from './store';
+import registerServiceWorker from './registerServiceWorker';
 
 const config = {
   apiKey: "AIzaSyAppTWg88GC6Zea0mZzwLBVtephnO29S6Y",
@@ -30,7 +31,7 @@ const render = Component => {
         </BrowserRouter>
       </Provider>
     </AppContainer>,
-    document.getElementById("app")
+    document.getElementById('app'),
   );
 };
 
@@ -42,3 +43,5 @@ if (module.hot) {
     render(App);
   });
 }
+
+registerServiceWorker();
