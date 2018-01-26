@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import Square from './Square';
 import PropTypes from 'prop-types';
+
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
-import Card, { CardActions, CardContent } from 'material-ui/Card';
-import Button from 'material-ui/Button';
-import classnames from 'classnames';
+import Card, { CardContent } from 'material-ui/Card';
 
-const styles = theme => ({
-  root: {
-  },
-  card:{
-    display:'flex',
-    flexDirection:'column',
+import Square from './Square';
+
+const styles = (theme) => ({
+  root: {},
+  card: {
+    display: 'flex',
+    flexDirection: 'column',
   },
   player: {
     display: 'flex',
@@ -29,108 +31,97 @@ const styles = theme => ({
     clear: 'both',
     content: '',
     display: 'row',
-  }
+  },
 });
 
 class Board extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      squares: Array(9).fill(null),
-      xNext: true,
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.winner = this.winner.bind(this);
+    this.state = {};
   }
 
-  handleClick(i, winner) {
-    const { squares } = this.state;
-    if (winner(squares)||squares[i])
-      return;
-    squares[i] = this.state.xNext ? 'X' : 'O';
-    this.setState({
-      squares: squares,
-      xNext: !this.state.xNext,
-    });
-  }
+  // handleClick(i, winner) {
+  //   const { squares } = this.state;
+  //   if (winner(squares)||squares[i])
+  //     return;
+  //   squares[i] = this.state.xNext ? 'X' : 'O';
+  //   this.setState({
+  //     squares: squares,
+  //     xNext: !this.state.xNext,
+  //   });
+  // }
 
-  winner(squares) {
-    const pos = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-    for (var i = 0; i < 8; i++) {
-      const [a, b, c] = pos[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c])
-        return squares[a];//winner
-    }
-    return null;
-  }
+  // winner(squares) {
+  //   const pos = [
+  //     [0, 1, 2],
+  //     [3, 4, 5],
+  //     [6, 7, 8],
+  //     [0, 3, 6],
+  //     [1, 4, 7],
+  //     [2, 5, 8],
+  //     [0, 4, 8],
+  //     [2, 4, 6],
+  //   ];
+  // onClick={() => this.handleClick(p, this.winner)}
+  //   for (var i = 0; i < 8; i++) {
+  //     const [a, b, c] = pos[i];
+  //     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c])
+  //       return squares[a];//winner
+  //   }
+  //   return null;
+  // }
 
   render() {
-    const { classes ,fillsquare,fillSquare} = this.props;
-    const { squares } = this.state;
-    const playerNext = this.state.xNext ? 'X' : 'O';
-    const playerNexts = this.winner(squares);;
+    const { classes, fillSquare } = this.props;
+
+    const { xNext, winner, player1, player2 } = fillSquare;
+
     const num1 = ['0', '1', '2'];
     const num2 = ['3', '4', '5'];
     const num3 = ['6', '7', '8'];
-    console.log(playerNexts);
+
     return (
       <div className={classes.root}>
-      <Card className={classes.card}>
-          <CardContent >
+        <Card className={classes.card}>
+          <CardContent>
             <div className={classes.player}>
-              <Typography type="display1" className={classes.info} >
-                {`Next Player is : ${playerNext}`}
-                </Typography>
-              <Typography type="display1" color="primary" className={classes.info}>
-              {playerNexts === null ? ' ':
-                (`Winner is :${playerNexts}`)}              
+              <Typography type="display1" className={classes.info}>
+                {`Next Player is : ${xNext ? player1.name : player2.name}`}
+              </Typography>
+              <Typography
+                type="display1"
+                color="primary"
+                className={classes.info}
+              >
+                {winner}
               </Typography>
             </div>
           </CardContent>
-          <CardContent>        
-        <div className={classes.boardRow}>
-          {num1.map((p, i) => (
-            <Square
-              value={squares[p]}
-              key={i}
-              onClick={() => this.handleClick(p, this.winner)}
-            />
-          ))}
-        </div>
-        <div className={classes.boardRow}>
-          {num2.map((p, i) => (<Square
-            value={squares[p]}
-            key={i}
-            onClick={() => this.handleClick(p, this.winner)}
-          />
-          ))}
-        </div>
-        <div className={classes.boardRow}>
-          {num3.map((p, i) => (<Square
-            value={squares[p]}
-            key={i}
-            onClick={() => this.handleClick(p, this.winner)}
-          />
-          ))}
-        </div>
-            </CardContent>        
+          <CardContent>
+            <div className={classes.boardRow}>
+              {num1.map((p, i) => <Square key={i} index={i} />)}
+            </div>
+            <div className={classes.boardRow}>
+              {num2.map((p, i) => <Square key={i} index={i + 3} />)}
+            </div>
+            <div className={classes.boardRow}>
+              {num3.map((p, i) => <Square key={i} index={i + 6} />)}
+            </div>
+          </CardContent>
         </Card>
-      </div >
+      </div>
     );
   }
 }
 
 Board.propTypes = {
   classes: PropTypes.object.isRequired,
+  fillSquare: PropTypes.object,
 };
 
-export default withStyles(styles)(Board);
+const mapStateToProps = (state) => state;
+const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withStyles(styles)(Board),
+);

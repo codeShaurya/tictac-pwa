@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -16,24 +17,21 @@ class Game extends Component {
   }
 
   render() {
-    const { player, fillSquare } = this.props;
-
     return (
       <div>
         <Header />
-        <Grid container justify="space-around" >
+        <Grid container justify="space-around">
           <Grid item xs={12} sm={12} md={5} lg={5}>
-            <Board {...this.props} />
+            <Board />
           </Grid>
           <Grid item xs={12} sm={12} md={5} lg={5}>
-            <WinnerCard {...player} />
+            <WinnerCard />
           </Grid>
         </Grid>
       </div>
     );
   }
 }
-
 
 function mapStateToProps(state) {
   return state;
