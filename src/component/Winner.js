@@ -9,6 +9,8 @@ import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 
+import actionReset from '../action/reset';
+
 const styles = (theme) => ({
   root: {
     flexGrow: 1,
@@ -42,11 +44,6 @@ class WinnerCard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
-    console.log('Reseting Game board');
   }
 
   render() {
@@ -73,7 +70,7 @@ class WinnerCard extends Component {
           </CardContent>
           <CardActions>
             <div className={classes.flexGrow} />
-            <Button raised color="primary" onClick={this.onClick}>
+            <Button raised color="primary" onClick={this.props.actionReset}>
               Restart Game
             </Button>
             <div className={classes.flexGrow} />
@@ -89,7 +86,9 @@ WinnerCard.propTypes = {
 };
 
 const mapStateToProps = (state) => state;
-const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  actionReset,
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(
   withStyles(styles)(WinnerCard),

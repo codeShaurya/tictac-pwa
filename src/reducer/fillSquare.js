@@ -43,6 +43,14 @@ function fillSquare(state = initialState, action) {
         return newState;
       }
 
+      case 'RESET':
+      {
+
+        const board = Array(9).fill(null);
+        
+        return {...state, board, xNext : true,  winner : ''};
+      }
+
     default:
       return state
   }
