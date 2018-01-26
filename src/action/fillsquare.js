@@ -1,7 +1,5 @@
-import FILL_SQUARE  from '../constants/square';
+import FILL_SQUARE from '../constants/square';
 
+const fillsquare = (payload) => ({ type: FILL_SQUARE, payload });
 
-export default function fillsquare(index) {
-  return { type: FILL_SQUARE, index }
-}
-
+export default fillsquare;
