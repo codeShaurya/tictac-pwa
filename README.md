@@ -8,9 +8,9 @@ This code will help u in setting up an environment of ReactJS
 
 Commands :
 
-          sudo docker build -t ReactJS
+          sudo docker build -t tictac .
 
-          sudo docker run ReactJS
+          sudo docker run tictac
 
 
 ## Table of Contents
