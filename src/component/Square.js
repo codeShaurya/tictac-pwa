@@ -10,6 +10,7 @@ import Button from 'material-ui/Button';
 import classnames from 'classnames';
 
 import actionFillSquare from '../action/fillsquare';
+import actionCheckWinner from '../action/winner';
 
 const styles = (theme) => ({
   root: {
@@ -41,19 +42,24 @@ const styles = (theme) => ({
 class Square extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      message: "",
+    };
 
     this.onClickSquare = this.onClickSquare.bind(this);
   }
 
   onClickSquare(e) {
-    const { index, fillSquare, winner } = this.props;
-    const { xNext, board } = fillSquare;
+    const { index, fillSquare } = this.props;
+    const { xNext, board, winner } = fillSquare;
 
-    if (typeof winner !== 'undefined' || board[index]) {
+    if (winner !== "" || board[index]) {
+      this.setState({message:"Please restart the game!"})
       return;
     }
+
     this.props.actionFillSquare({ xNext, index });
+    this.props.actionCheckWinner({ xNext, index });
   }
 
   render() {
@@ -81,6 +87,7 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       actionFillSquare,
+      actionCheckWinner,
     },
     dispatch,
   );

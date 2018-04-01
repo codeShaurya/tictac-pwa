@@ -40,37 +40,6 @@ class Board extends Component {
     this.state = {};
   }
 
-  // handleClick(i, winner) {
-  //   const { squares } = this.state;
-  //   if (winner(squares)||squares[i])
-  //     return;
-  //   squares[i] = this.state.xNext ? 'X' : 'O';
-  //   this.setState({
-  //     squares: squares,
-  //     xNext: !this.state.xNext,
-  //   });
-  // }
-
-  // winner(squares) {
-  //   const pos = [
-  //     [0, 1, 2],
-  //     [3, 4, 5],
-  //     [6, 7, 8],
-  //     [0, 3, 6],
-  //     [1, 4, 7],
-  //     [2, 5, 8],
-  //     [0, 4, 8],
-  //     [2, 4, 6],
-  //   ];
-  // onClick={() => this.handleClick(p, this.winner)}
-  //   for (var i = 0; i < 8; i++) {
-  //     const [a, b, c] = pos[i];
-  //     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c])
-  //       return squares[a];//winner
-  //   }
-  //   return null;
-  // }
-
   render() {
     const { classes, fillSquare } = this.props;
 
@@ -88,13 +57,15 @@ class Board extends Component {
               <Typography type="display1" className={classes.info}>
                 {`Next Player is : ${xNext ? player1.name : player2.name}`}
               </Typography>
-              <Typography
-                type="display1"
-                color="primary"
-                className={classes.info}
-              >
-                {winner}
-              </Typography>
+              { (winner !== "") ?
+                <Typography 
+                  type="display1"
+                  color="accent"
+                  className={classes.info}
+                >
+                  {`Winner is ${ (winner === player1.code) ? player1.name : player2.name}`}
+                </Typography> : null
+              }
             </div>
           </CardContent>
           <CardContent>
