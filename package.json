@@ -2,6 +2,7 @@
   "name": "react-tictac-pwa",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://codeSharya.github.io/tictac-pwa",
   "dependencies": {
     "firebase": "^4.8.2",
     "material-ui": "^1.0.0-beta.21",
@@ -22,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "deploy": "firebase deploy",
     "eject": "react-scripts eject"
   }
 }

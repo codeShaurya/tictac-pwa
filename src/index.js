@@ -13,12 +13,12 @@ import store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
 const config = {
-  apiKey: "AIzaSyAppTWg88GC6Zea0mZzwLBVtephnO29S6Y",
-  authDomain: "tictac-shaurya.firebaseapp.com",
-  databaseURL: "https://tictac-shaurya.firebaseio.com",
-  projectId: "tictac-shaurya",
-  storageBucket: "tictac-shaurya.appspot.com",
-  messagingSenderId: "902131445856"
+    apiKey: "AIzaSyChuAz0wKdf1nuxhQgHQjCjH2RRrYj6Wqo",
+    authDomain: "tic-tac-too.firebaseapp.com",
+    databaseURL: "https://tic-tac-too.firebaseio.com",
+    projectId: "tic-tac-too",
+    storageBucket: "",
+    messagingSenderId: "684618674440"
 };
 firebase.initializeApp(config);
 
