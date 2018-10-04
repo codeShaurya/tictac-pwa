@@ -15,6 +15,12 @@ const styles = (theme) => ({
   card: {
     display: 'flex',
     flexDirection: 'column',
+    marginTop: 20,
+    alignItems: 'center'
+  },
+  cardContent: {
+    width: 300,
+    height: 130
   },
   player: {
     display: 'flex',
@@ -68,7 +74,7 @@ class Board extends Component {
               }
             </div>
           </CardContent>
-          <CardContent>
+          <CardContent className={classes.cardContent}>
             <div className={classes.boardRow}>
               {num1.map((p, i) => <Square key={i} index={i} />)}
             </div>

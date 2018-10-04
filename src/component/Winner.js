@@ -18,6 +18,7 @@ const styles = (theme) => ({
   },
   card: {
     minHeight: '225px',
+    marginTop: 20
   },
   title: {
     marginBottom: 16,
