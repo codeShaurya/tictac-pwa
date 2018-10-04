@@ -11,9 +11,12 @@ import MenuIcon from 'material-ui-icons/Menu';
 const styles = theme => ({
   root: {
     width: '100%',
+    marginBottom: 90,
   },
   flex: {
     flex: 1,
+    textAlign:'center',
+    fontFamily: '"Press Start 2P", cursive',
   },
   menuButton: {
     marginLeft: -12,

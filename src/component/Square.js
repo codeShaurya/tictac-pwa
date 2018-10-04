@@ -14,7 +14,7 @@ import actionCheckWinner from '../action/winner';
 
 const styles = (theme) => ({
   root: {
-    font: '14px "Century Gothic", Futura, sans-serif',
+    font: '14px "Press Start 2P", cursive',
     margin: '20px',
   },
 

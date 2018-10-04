@@ -15,6 +15,9 @@ const styles = (theme) => ({
   card: {
     display: 'flex',
     flexDirection: 'column',
+    justifyContent:'center',
+    borderRadius: '17px',
+    boxShadow: '0 4px 8px 0 rgb(34,139,34), 0 6px 20px 0 rgb(34,139,34)',
   },
   player: {
     display: 'flex',
@@ -26,12 +29,17 @@ const styles = (theme) => ({
   info: {
     alignSelf: 'flex-start',
     padding: '2px',
+    fontFamily: '"Press Start 2P", cursive',
   },
   boardRow: {
     clear: 'both',
     content: '',
     display: 'row',
   },
+  cardContent:{
+    display:'flex',
+    justifyContent:'center'
+  }
 });
 
 class Board extends Component {
@@ -58,7 +66,7 @@ class Board extends Component {
                 {`Next Player is : ${xNext ? player1.name : player2.name}`}
               </Typography>
               { (winner !== "") ?
-                <Typography 
+                <Typography
                   type="display1"
                   color="accent"
                   className={classes.info}
@@ -68,7 +76,7 @@ class Board extends Component {
               }
             </div>
           </CardContent>
-          <CardContent>
+          <CardContent className={classes.cardContent}>
             <div className={classes.boardRow}>
               {num1.map((p, i) => <Square key={i} index={i} />)}
             </div>

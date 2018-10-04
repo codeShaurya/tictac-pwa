@@ -18,6 +18,8 @@ const styles = (theme) => ({
   },
   card: {
     minHeight: '225px',
+    borderRadius: '17px',
+    boxShadow: '0 4px 8px 3px rgb(34,139,34), 0 6px 20px 3px rgb(34,139,34)',
   },
   title: {
     marginBottom: 16,
@@ -34,10 +36,14 @@ const styles = (theme) => ({
   info: {
     alignSelf: 'flex-start',
     padding: '2px',
+    fontFamily: '"Press Start 2P", cursive',
   },
   flexGrow: {
     flex: '1 1 auto',
   },
+  buttonFont: {
+    fontFamily: '"Press Start 2P", cursive',
+  }
 });
 
 class WinnerCard extends Component {
@@ -60,7 +66,7 @@ class WinnerCard extends Component {
                 {` (${player1.code})`}
               </Typography>
               <Typography type="headline" className={classes.info}>
-                {'------v/s------'}
+                {'--v/s--'}
               </Typography>
               <Typography type="display1" className={classes.info}>
                 {player2.name}
@@ -71,7 +77,7 @@ class WinnerCard extends Component {
           <CardActions>
             <div className={classes.flexGrow} />
             <Button raised color="primary" onClick={this.props.actionReset}>
-              Restart Game
+              <p1 className={classes.buttonFont}>Restart Game</p1>
             </Button>
             <div className={classes.flexGrow} />
           </CardActions>
