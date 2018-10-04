@@ -1,29 +1,32 @@
-This Game is made with-
-## [React](https://reactjs.org/)
-## [Redux](https://redux.js.org/)
-## [Node Js](https://nodejs.org/en/)
-## [Docker](https://www.docker.com/)
-## [Material UI](https://material-ui-next.com/)
+# Tictac Game (Progressive Web App)
 
-And deployed with-
-## [Firebase](https://firebase.google.com/)
+## This Game is made with
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Node Js](https://nodejs.org/en/)
+- [Docker](https://www.docker.com/)
+- [Material UI](https://material-ui-next.com/)
 
-# Run this App :
-**1. Clone the repo**
----
-### *`git clone https://github.com/codeShaurya/tictac-pwa.git`*
-___
+## And deployed with
+- [Firebase](https://firebase.google.com/)
 
-## **2. Navigate to the repo**
-### *`cd tictac-pwa`*
-___
-
-## **3. Build the docker image(Only First Time)**
-### *`sudo docker build -t tictac .`*
-___
-## **4. Build the docker image(Only First Time)**
-### *`sudo docker-compose up`*
-___
+## Run this App :
+1. Clone the repo
+```bash
+$ git clone https://github.com/codeShaurya/tictac-pwa.git
+```
+2. Navigate to the repo
+```bash
+$ cd tictac-pwa
+```
+3. Build the docker image(Only First Time)
+```bash
+$ sudo docker build -t tictac
+```
+4. Build the docker image(Only First Time)
+```bash
+$ sudo docker-compose up
+```
 
 ###  **`View your browser https://localhost:3000`**
 
