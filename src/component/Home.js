@@ -18,6 +18,7 @@ import actionPlayer from '../action/player';
 const styles = theme => ({
   card: {
     minWidth: 275,
+    marginTop: 20
   },
   bullet: {
     display: 'inline-block',

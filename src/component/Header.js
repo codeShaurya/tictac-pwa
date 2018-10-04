@@ -18,7 +18,7 @@ const styles = theme => ({
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
-  },
+  }
 });
 
 function Header(props) {
@@ -26,14 +26,14 @@ function Header(props) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
+        <Toolbar disableGutters = "">
+          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
             TIC-TAC
           </Typography>
-          <Button color="contrast">Login</Button>
+          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
