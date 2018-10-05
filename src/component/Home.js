@@ -28,6 +28,7 @@ const styles = theme => ({
     minWidth: 275,
     borderRadius: '17px',
     boxShadow: '0 4px 8px 3px rgb(34,139,34), 0 6px 20px 3px rgb(34,139,34)',
+    marginTop: 20,
   },
   bullet: {
     display: 'inline-block',

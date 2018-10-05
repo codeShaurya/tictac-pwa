@@ -20,6 +20,7 @@ const styles = (theme) => ({
     minHeight: '225px',
     borderRadius: '17px',
     boxShadow: '0 4px 8px 3px rgb(34,139,34), 0 6px 20px 3px rgb(34,139,34)',
+    marginTop: 20,
   },
   title: {
     marginBottom: 16,

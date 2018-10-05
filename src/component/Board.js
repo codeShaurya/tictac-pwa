@@ -15,9 +15,17 @@ const styles = (theme) => ({
   card: {
     display: 'flex',
     flexDirection: 'column',
+    marginTop: 20,
+    alignItems: 'center',
     justifyContent:'center',
     borderRadius: '17px',
     boxShadow: '0 4px 8px 0 rgb(34,139,34), 0 6px 20px 0 rgb(34,139,34)',
+  },
+  cardContent: {
+    width: 300,
+    height: 130,
+    display:'flex',
+    justifyContent:'center',
   },
   player: {
     display: 'flex',
@@ -36,10 +44,6 @@ const styles = (theme) => ({
     content: '',
     display: 'row',
   },
-  cardContent:{
-    display:'flex',
-    justifyContent:'center'
-  }
 });
 
 class Board extends Component {
