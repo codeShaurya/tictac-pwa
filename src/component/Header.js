@@ -17,10 +17,12 @@ const styles = theme => ({
     flex: 1,
     textAlign:'center',
     fontFamily: '"Press Start 2P", cursive',
+    color:'#ffffff'
   },
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
+    color:'#ffffff'
   },
 });
 
@@ -36,7 +38,9 @@ function Header(props) {
           <Typography type="title" color="inherit" className={classes.flex}>
             TIC-TAC
           </Typography>
-          <Button color="contrast">Login</Button>
+          <Button color="contrast">
+          <p1 className={classes.flex}> Login </p1>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
