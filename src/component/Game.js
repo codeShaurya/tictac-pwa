@@ -9,6 +9,7 @@ import Grid from 'material-ui/Grid';
 import Header from './Header';
 import Board from './Board';
 import WinnerCard from './Winner';
+import WinnersHistory from './WinnersHistory';
 
 import fillsquare from '../action/fillsquare';
 
@@ -40,6 +41,9 @@ class Game extends Component {
           </Grid>
           <Grid item xs={12} sm={12} md={5} lg={5}>
             <WinnerCard />
+          </Grid>
+          <Grid item xs={12} sm={12} md={5} lg={5}>
+            <WinnersHistory />
           </Grid>
         </Grid>
       </div>

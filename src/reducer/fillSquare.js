@@ -8,6 +8,7 @@ const initialState = {
   winner,
   player1,
   player2,
+  winners: []
 }
 
 function fillSquare(state = initialState, action) {
@@ -82,8 +83,16 @@ function fillSquare(state = initialState, action) {
         let winner = "";
         for (var i = 0; i < 8; i++) {
           const [a, b, c] = pos[i];
-          if (board[a] && board[a] === board[b] && board[a] === board[c])
+          if (board[a] && board[a] === board[b] && board[a] === board[c]) {
             winner = board[a];
+            newState.winners = [
+              {
+                key: Date.now(),
+                player: state.player1.code === winner ? state.player1 : state.player2
+              },
+              ...newState.winners
+            ];
+          }
         }
 
       return {...newState, winner};
