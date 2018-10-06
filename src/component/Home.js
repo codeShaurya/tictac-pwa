@@ -16,9 +16,19 @@ import Header from './Header';
 import actionPlayer from '../action/player';
 
 const styles = theme => ({
+  root:{
+    backgroundColor:'#000000',
+    position: 'absolute',
+    top:0,
+    left:0,
+    height: '100%',
+    width: '100%'
+  },
   card: {
     minWidth: 275,
-    marginTop: 20
+    borderRadius: '17px',
+    boxShadow: '0 4px 8px 3px rgb(34,139,34), 0 6px 20px 3px rgb(34,139,34)',
+    marginTop: 20,
   },
   bullet: {
     display: 'inline-block',
@@ -28,12 +38,13 @@ const styles = theme => ({
   title: {
     marginBottom: 16,
     fontSize: 14,
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.secondary
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: '100%',
+    fontFamily: '"Press Start 2P", cursive',
   },
   pos: {
     marginBottom: 12,
@@ -41,6 +52,10 @@ const styles = theme => ({
   },
   flexGrow: {
     flex: '1 1 auto',
+  },
+  input: {
+    fontFamily: '"Press Start 2P", cursive',
+    textAlign:'center'
   },
 });
 
@@ -78,7 +93,7 @@ class Home extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className = {classes.root}>
         <Header />
         <Grid
           container
@@ -97,6 +112,9 @@ class Home extends Component {
                   className={classes.textField}
                   margin="normal"
                   onChange={this.onChangePlayer1}
+                  InputProps={{
+                    className: classes.input,
+                  }}
                 />
                 <br />
                 <TextField
@@ -106,6 +124,9 @@ class Home extends Component {
                   className={classes.textField}
                   margin="normal"
                   onChange={this.onChangeCode1}
+                  InputProps={{
+                    className: classes.input,
+                  }}
                 />
                 <br />
                 <TextField
@@ -115,6 +136,9 @@ class Home extends Component {
                   className={classes.textField}
                   margin="normal"
                   onChange={this.onChangePlayer2}
+                  InputProps={{
+                    className: classes.input,
+                  }}
                 />
                 <br />
                 <TextField
@@ -124,12 +148,15 @@ class Home extends Component {
                   className={classes.textField}
                   margin="normal"
                   onChange={this.onChangeCode2}
+                  InputProps={{
+                    className: classes.input,
+                  }}
                 />
               </CardContent>
               <CardActions>
                 <div className={classes.flexGrow} />
                 <Button raised color="accent" onClick={this.onClick} >
-                  Start Game
+                  <p1 className={classes.input}>Start Game</p1>
                 </Button>
               </CardActions>
             </Card>

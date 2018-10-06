@@ -16,11 +16,16 @@ const styles = (theme) => ({
     display: 'flex',
     flexDirection: 'column',
     marginTop: 20,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent:'center',
+    borderRadius: '17px',
+    boxShadow: '0 4px 8px 0 rgb(34,139,34), 0 6px 20px 0 rgb(34,139,34)',
   },
   cardContent: {
     width: 300,
-    height: 130
+    height: 130,
+    display:'flex',
+    justifyContent:'center',
   },
   player: {
     display: 'flex',
@@ -32,6 +37,7 @@ const styles = (theme) => ({
   info: {
     alignSelf: 'flex-start',
     padding: '2px',
+    fontFamily: '"Press Start 2P", cursive',
   },
   boardRow: {
     clear: 'both',
@@ -64,7 +70,7 @@ class Board extends Component {
                 {`Next Player is : ${xNext ? player1.name : player2.name}`}
               </Typography>
               { (winner !== "") ?
-                <Typography 
+                <Typography
                   type="display1"
                   color="accent"
                   className={classes.info}

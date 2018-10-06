@@ -11,14 +11,19 @@ import MenuIcon from 'material-ui-icons/Menu';
 const styles = theme => ({
   root: {
     width: '100%',
+    marginBottom: 90,
   },
   flex: {
     flex: 1,
+    textAlign:'center',
+    fontFamily: '"Press Start 2P", cursive',
+    color:'#ffffff'
   },
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
-  }
+    color:'#ffffff'
+  },
 });
 
 function Header(props) {
@@ -33,7 +38,9 @@ function Header(props) {
           <Typography type="title" color="inherit" className={classes.flex}>
             TIC-TAC
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="contrast">
+          <p1 className={classes.flex}> Login </p1>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
