@@ -14,9 +14,15 @@ const styles = () => ({
   },
   card: {
     minHeight: '225px',
+    borderRadius: '17px',
+    boxShadow: '0 4px 8px 3px rgb(34,139,34), 0 6px 20px 3px rgb(34,139,34)',
+    marginTop: 20,
   },
   winner: {
-    fontSize: '2rem',
+    fontSize: '1rem',
+    marginTop: 10,
+    fontFamily: '"Press Start 2P", cursive',
+    color: "rgb(34,139,34)"
   }
 });
 
