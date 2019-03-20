@@ -32,9 +32,6 @@ function Header(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar disableGutters = "">
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
             TIC-TAC
           </Typography>
